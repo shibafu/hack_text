@@ -1,0 +1,78 @@
+(gdb) break 10
+Breakpoint 3 at 0x400559: file firstprog.c, line 10.
+(gdb) run
+Starting program: /home/pratula/hack_text/firstprog 
+(gdb) i r
+rax            0xc	12
+rbx            0x0	0
+rcx            0x7ffff7b003b0	140737348895664
+rdx            0x7ffff7dd59e0	140737351866848
+rsi            0x7ffff7ff7000	140737354100736
+rdi            0x1	1
+rbp            0x7fffffffde60	0x7fffffffde60
+rsp            0x7fffffffde40	0x7fffffffde40
+r8             0x7ffff7dd59e0	140737351866848
+r9             0x0	0
+r10            0x22	34
+r11            0x246	582
+r12            0x400440	4195392
+r13            0x7fffffffdf40	140737488346944
+r14            0x0	0
+r15            0x0	0
+rip            0x400559	0x400559 <main+44>
+eflags         0x202	[ IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+(gdb) disass main
+Dump of assembler code for function main:
+   0x000000000040052d <+0>:	push   rbp
+   0x000000000040052e <+1>:	mov    rbp,rsp
+   0x0000000000400531 <+4>:	sub    rsp,0x20
+   0x0000000000400535 <+8>:	mov    DWORD PTR [rbp-0x14],edi
+   0x0000000000400538 <+11>:	mov    QWORD PTR [rbp-0x20],rsi
+   0x000000000040053c <+15>:	mov    DWORD PTR [rbp-0x4],0x0
+   0x0000000000400543 <+22>:	jmp    0x400553 <main+38>
+   0x0000000000400545 <+24>:	mov    edi,0x4005e4
+   0x000000000040054a <+29>:	call   0x400410 <puts@plt>
+   0x000000000040054f <+34>:	add    DWORD PTR [rbp-0x4],0x1
+   0x0000000000400553 <+38>:	cmp    DWORD PTR [rbp-0x4],0x9
+   0x0000000000400557 <+42>:	jle    0x400545 <main+24>
+=> 0x0000000000400559 <+44>:	mov    eax,0x0
+   0x000000000040055e <+49>:	leave  
+   0x000000000040055f <+50>:	ret    
+End of assembler dump.
+(gdb) i r
+rax            0xc	12
+rbx            0x0	0
+rcx            0x7ffff7b003b0	140737348895664
+rdx            0x7ffff7dd59e0	140737351866848
+rsi            0x7ffff7ff7000	140737354100736
+rdi            0x1	1
+rbp            0x7fffffffde60	0x7fffffffde60
+rsp            0x7fffffffde40	0x7fffffffde40
+r8             0x7ffff7dd59e0	140737351866848
+r9             0x0	0
+r10            0x22	34
+r11            0x246	582
+r12            0x400440	4195392
+r13            0x7fffffffdf40	140737488346944
+r14            0x0	0
+r15            0x0	0
+rip            0x400559	0x400559 <main+44>
+eflags         0x202	[ IF ]
+cs             0x33	51
+ss             0x2b	43
+ds             0x0	0
+es             0x0	0
+fs             0x0	0
+gs             0x0	0
+(gdb) x/16xw $rsp
+0x7fffffffde40:	0xffffdf48	0x00007fff	0x00400440	0x00000001
+0x7fffffffde50:	0xffffdf40	0x00007fff	0x00000000	0x0000000a
+0x7fffffffde60:	0x00000000	0x00000000	0xf7a35ec5	0x00007fff
+0x7fffffffde70:	0x00000000	0x00000000	0xffffdf48	0x00007fff
+(gdb) 
