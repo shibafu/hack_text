@@ -1,0 +1,21 @@
+000000000040052d <main>:
+  40052d:	55                   	push   rbp
+  40052e:	48 89 e5             	mov    rbp,rsp
+  400531:	48 83 ec 20          	sub    rsp,0x20
+  400535:	89 7d ec             	mov    DWORD PTR [rbp-0x14],edi
+  400538:	48 89 75 e0          	mov    QWORD PTR [rbp-0x20],rsi
+  40053c:	c7 45 fc 00 00 00 00 	mov    DWORD PTR [rbp-0x4],0x0
+  400543:	eb 0e                	jmp    400553 <main+0x26>
+  400545:	bf e4 05 40 00       	mov    edi,0x4005e4
+  40054a:	e8 c1 fe ff ff       	call   400410 <puts@plt>
+  40054f:	83 45 fc 01          	add    DWORD PTR [rbp-0x4],0x1
+  400553:	83 7d fc 09          	cmp    DWORD PTR [rbp-0x4],0x9
+  400557:	7e ec                	jle    400545 <main+0x18>
+  400559:	b8 00 00 00 00       	mov    eax,0x0
+  40055e:	c9                   	leave  
+  40055f:	c3                   	ret    
+
+0000000000400560 <__libc_csu_init>:
+  400560:	41 57                	push   r15
+  400562:	41 89 ff             	mov    r15d,edi
+  400565:	41 56                	push   r14
